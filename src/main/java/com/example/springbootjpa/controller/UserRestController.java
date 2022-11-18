@@ -1,6 +1,7 @@
 package com.example.springbootjpa.controller;
 
 
+import com.example.springbootjpa.model.dto.UserRequest;
 import com.example.springbootjpa.model.dto.UserResponse;
 import com.example.springbootjpa.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +17,16 @@ public class UserRestController {
         this.userService = userService;
     }
 
-    //    @RequestMapping(value="/{id}",method = RequestMethod.GET)
-//    public String getUser(){
-//        return user;
-//    }
+
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUser(@PathVariable Long id) {
         return ResponseEntity.ok().body(userService.getUser(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<UserResponse> addUser(@RequestBody UserRequest dto) {
+        UserResponse response = userService.addUser(dto);
+        return ResponseEntity.ok().body(response);
     }
 
 }
