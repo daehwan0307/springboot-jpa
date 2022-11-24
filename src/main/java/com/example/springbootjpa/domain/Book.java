@@ -16,5 +16,5 @@ public class Book {
     @Id
     private Long id;
     private String name;
-    private Long authorId;
+    private Long authorId; //authorname이 아니라 author id가 들어있다.
 }

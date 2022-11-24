@@ -28,9 +28,10 @@ public class BookService {
         Page<Book> books = bookRepository.findAll(pageable);
         List<BookResponse> bookResponses = books.stream()
                 .map(book->{
-                    Optional<Author> optionalAuthor = authorRepository.findById(book.getAuthorId());
-                    return BookResponse.of(book,optionalAuthor.get().getName());
-                }).collect(Collectors.toList());
+                    Optional<Author> optionalAuthor = authorRepository.findById(book.getAuthorId());  //book에 들어있는 authorid로 검색을 한결과를 optionalAuthor에 저장
+                    return BookResponse.of(book,optionalAuthor.get().getName());  //optionalAuthor.get().getName()을 통하여 String authorname을 받아온다.
+                }).collect(Collectors.toList());  //bookResponse의 return type이 List이기 때문에 mapping한 값들을 list로 만들어서 반환해줘야 한다.
+        //collect메소드 toList(), toSet() 등등 존재
 
         return bookResponses;
     }
