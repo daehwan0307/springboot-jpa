@@ -1,18 +1,19 @@
 package com.example.springbootjpa.model.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
-public class ReviewReadResponse {
-    private Long id;
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ReviewRequest {
+    private int hospital_id;
     private String title;
     private String content;
     private String patientName;
-    private String hospitalName;
+
+
 }
