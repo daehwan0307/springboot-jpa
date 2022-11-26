@@ -22,6 +22,8 @@ public class HospitalController {
     public HospitalController(ReviewService reviewService, HospitalService hospitalService) {
         this.reviewService = reviewService;
         this.hospitalService = hospitalService;
+
+        
     }
 
     private final HospitalService hospitalService;
